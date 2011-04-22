@@ -1,0 +1,113 @@
+<html>
+  <head>
+     <%= stylesheet_link_tag 'login' %>
+     <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
+  </head>
+<body>
+
+<script>
+function make_facebook_login(){
+
+ FB.init({
+ appId  : '<%= Facebook::APP_ID %>',
+ status : true, // check login status
+ cookie : true, // enable cookies to allow the server to access the session
+ xfbml  : true  // parse XFBML
+ });
+
+
+
+FB.login(function(response) {
+  if (response.session) {
+    if (response.perms) {
+      // user is logged in and granted some permissions.
+      // perms is a comma separated list of granted permissions
+      location.href = '/homes'
+    } else {
+      // user is logged in, but did not grant any permissions
+    }
+  } else {
+    // user is not logged in
+  }
+}, {perms:"read_stream,publish_stream,offline_access,email"});
+
+
+}
+
+function  make_facebook_logout(){
+
+ FB.init({
+ appId  : '<%= Facebook::APP_ID %>',
+ status : true, // check login status
+ cookie : true, // enable cookies to allow the server to access the session
+ xfbml  : true  // parse XFBML
+ });
+
+  FB.logout(function(response) {
+  redirect_me();
+  });
+
+
+  
+}
+function redirect_me(){
+
+window.location = "http://<%=request.host_with_port%>/";
+
+}
+
+
+
+</script>
+
+  <div id="upper_div">
+   <div id="flash"> <%=flash[:notice]%> </div>
+    <ul id="aux-nav">
+       <%if current_user%>
+      	<li >Welcome <%=current_user.login%></li>
+    	  <li><a title="Contact Us" href="/logout">Sign Out</a></li>
+        <%else%>
+          <%if params[:controller] == "users" and params[:action]=="new"%>
+             <%else%> 
+       	<li><a title="Mobify Support Community" href="/users/new">Sign Up</a></li>
+              <%end%>
+        <%end%>
+        <%if current_user%>
+        <%else%>  
+            <%if params[:controller] == "sessions" and params[:action]=="new"%>
+             <%else%> 
+              <li><a title="Contact Us" href="/login">Sign In</a></li>
+              <%end%>
+        <%end%>
+    </ul>
+    <div id="fb_image_div">
+       <div id="fb-root"></div>
+        <%if @facebook_cookies.blank?%>
+         <a href="#" onclick="make_facebook_login();">
+            <img src="/images/fb_login.gif"></img>
+         </a>
+        <%else%>
+         <a href="#" onclick="make_facebook_logout();">
+                <img src="/images/flogout.jpeg"></img>
+         </a> 
+        <%end%>
+  
+    </div>
+ <%if current_user%>
+    <ul id="common_list">
+      	<li>
+          <a href="/">Home</a>
+        </li>
+      	<li><%=link_to "My Friend",:controller=>"friendships",:action=>"get_all_friend"%></li>
+      	<li><%=link_to "Invitation Pending",:controller=>"friendships",:action=>"pending_invitation"%></li>
+      	<li><%=link_to "My Profile",:controller=>"users",:action=>"my_profile"%></li>
+      	<li><%=link_to "Send Invitation",:controller=>"friend_requests",:action=>"send_friend_request"%></li>
+    </ul>
+<%end%>
+  </div>
+<%= yield %>
+<div id="footer" >
+</div>
+
+</body>
+</html>

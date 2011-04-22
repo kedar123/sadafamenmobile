@@ -1,0 +1,21 @@
+<div style="padding-left:500px;padding-top:100px;">
+These Are My Friend From Facebook
+<table border="0">
+ <% if  @friends %>
+ <% for friend in @friends %>
+ <tr>
+ <td><b><%=h friend.values_at("name")%> </b></td>
+ </tr>
+ <tr>
+ 
+ </tr>
+ <tr>
+ <td>&ndash;</td>
+ </tr>
+ <% end %>
+ <% end %>
+</table>
+this is my picture from facebook
+<img src="<%=@mypicture%>"></img>
+</div>
+</div>

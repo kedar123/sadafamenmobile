@@ -1,0 +1,33 @@
+
+    <div id="middle_div"> 
+      <p style="padding-left:20%;padding-top:2%">  <label class="prayer_label">Following Are The Friends Of <%=current_user.login%></label></p>
+       <div id="friend_list">
+            Friend List
+            <%for getallfriend in @userallfriend %>
+                           <br/>
+                        <p class="fcomment" style="padding-top:25px;"> 
+                                   <div >
+                                       <%if getallfriend.binary_data.blank?%>   
+                                          <img src="/images/blank.jpeg"></img>
+                                        <%else%>
+            <%= image_tag "/users/code_image/#{getallfriend.id}",:size=>"50x50",:style=>"float:left;padding:5px;" %>
+       
+                                                  
+                                        <%end%>  
+
+                                   <a href="/users/show_profile/<%=getallfriend.id%>"><%=getallfriend.login%></a>
+                                    </div>
+                         </p>
+               
+               
+          <%end%>  
+      
+       </div>
+       
+    </div>
+    
+
+
+
+
+

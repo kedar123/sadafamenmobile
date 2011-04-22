@@ -1,0 +1,359 @@
+#middle_div error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#middle_div error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#middle_div error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+ul#aux-nav {
+    position: absolute;
+    right: 0%;
+    top: 5%;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#aux-nav li {
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 100;
+    line-height: 2.2em;
+    margin-right: 15px;
+}
+
+#aux-nav li  a{
+ color:#ffffff;
+}
+#main-content {
+   background: url(/home/ptsadmin/railsappfriend/workingprogressoffriendapp/friendap28-2-2011/public/images/bg_right_content.png) repeat-x scroll 0 0 transparent;
+ width:100%;
+ height:60%;
+   
+}
+#contactsubmit {
+    -moz-background-clip: padding;
+    -moz-background-origin: padding;
+    -moz-background-size: auto auto;
+    -moz-border-radius: 5px 5px 5px 5px;
+    background-attachment: scroll;
+    background-color: #323232;
+    background-image: none;
+    background-position: 0 0;
+    background-repeat: repeat;
+    border: 1px solid #888888;
+    color: #F7F7F7;
+    cursor: pointer;
+    display: block;
+
+    font-size: 1em;
+    padding: 5px 0;
+    text-shadow: 0 -1px 0 #000000;
+    width: 86px;
+    margin-top:10px;
+}
+
+#upper_div{
+  width:100%;
+  height:120px;
+  background-color:black
+}
+#fb_image_div{
+    color: #FFD22D;
+    float: right;
+    font-weight: bold;
+    padding-top: 45px;
+    padding-right:10px;
+    clear:both;
+    margin: 20px;
+}
+#middle_div{
+width:100%;
+height:100%;
+background-color:#FFFFFF ;
+
+}
+#form_div {
+ padding-left:42%;
+ padding-top: 20px;
+}
+#rform_div {
+ padding-left:42%;
+ padding-top: 5px;
+}
+.form_label{
+color: #565656;
+font-size: 1.1em;
+font-weight: bold;
+line-height: 1.37em;
+margin-top:5px;  
+}
+.rform_label{
+    color: #565656;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1.37em;
+    margin-top: 5px;
+}
+.form_input {
+background: none repeat scroll 0 0 #FFFFFF;
+border: 1px solid #DADADA;
+color: #565656;
+font-size: 1.3em;
+margin-bottom: 8px;padding: 5px;
+width: 200px;
+margin-top:10px;
+-moz-border-radius: 5px 5px 5px 5px;  
+
+}
+.rform_input {
+    -moz-border-radius: 5px 5px 5px 5px;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DADADA;
+    color: #565656;
+    font-size: 1.3em;
+    margin-bottom: 8px;
+    margin-top: 1px;
+    padding: 0;
+    width: 325px;
+}
+.form_input_forgot{
+background: none repeat scroll 0 0 #FFFFFF;
+border: 1px solid #DADADA;
+color: #565656;
+font-size: 1.3em;
+margin-bottom: 8px;padding: 5px;
+width: 325px;
+margin-top:10px;
+-moz-border-radius: 5px 5px 5px 5px;  
+    
+
+}
+#footer{
+  width:100%;
+  height:120px;
+  background-color:black;
+  clear:both;  
+
+}
+a{
+  color:#C0C0C0;
+}
+a:hover {
+  color:#4C4646;
+}
+#rcontactsubmit {
+    -moz-background-clip: padding;
+    -moz-background-origin: padding;
+    -moz-background-size: auto auto;
+    -moz-border-radius: 5px 5px 5px 5px;
+    background-attachment: scroll;
+    background-color: #323232;
+    background-image: none;
+    background-position: 0 0;
+    background-repeat: repeat;
+    border: 1px solid #888888;
+    color: #F7F7F7;
+    cursor: pointer;
+    display: block;
+    font-size: 1em;
+    margin-top: 2px;
+    text-shadow: 0 -1px 0 #000000;
+    width: 86px;
+}
+
+
+#middleprayer{
+width:40%;
+padding-top:10px;
+padding-left:10%;
+float:left;
+  
+}
+#commentimage{
+float:left;
+}
+#addcomment{
+padding-top:10px;
+padding-left:50%;
+  
+}
+#commentform{
+padding-top:10px;
+padding-left:50%;
+  
+}
+#prayerdiv{
+width:40%;
+float:right;
+padding-top:10px;  
+
+}
+#form_div2 {
+ padding-right:10%;
+ padding-top: 20px;
+ 
+}
+
+
+
+.prayer_label{
+color: #3B5998;
+font-size: 12px;
+font-weight: bold;
+line-height: 1.37em;
+margin-top:5px;  
+}
+
+.prayer_labelp{
+color: #3B5998;
+font-size: 1.1em;
+font-weight: normal;
+line-height: 1.37em;
+margin-top:5px;  
+padding-left:12px;
+}
+
+
+.prayer{
+color: #717D7D;
+font-size: 12px;
+font-weight: normal;
+line-height: 1.37em;
+margin-top: 13px;
+}
+
+.comment{
+color: #2B60DE;
+font-size: 15px;
+font-weight: normal;
+line-height: 1.37em;
+margin-top:5px;
+background-color:#FFFFFF;
+
+width:95%;
+padding-top:2px;
+
+}
+.comment_by{
+color: #2B60DE;
+font-size: 8px;
+font-weight: normal;
+line-height: 1.37em;
+margin-top:5px;
+background-color:#ADDFFF;
+width:95%;
+}
+
+
+ul#common_list {
+    position: absolute;
+    right: 35%;
+    top: 5%;
+    padding-left: 15px;
+}
+#common_list li {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 0.8em; 
+    font-weight: 100; 
+    line-height: 2.2em;
+    color:#FFFFFF;
+}
+#common_list li  a{
+ color:#ffffff;
+}
+.comment_name{
+color: #2B60DE;
+font-size: 15px;
+font-weight: normal;
+line-height: 1.37em;
+margin-top:5px;
+background-color:#ADDFFF;
+width:20%;
+}
+#commentimage{
+float:left;
+}
+#friend_list{
+padding-left:10%;
+  
+}
+#middle_div_profile{
+padding-left:30%;
+}
+#middle_div_profile_content{
+  font-size: 12px;
+  padding-left:35%;  
+  float:left;
+  margin-left:10px; 
+
+}
+#middle_div_profile_content  a{
+ color:#ffffff;
+}
+a{
+  color:#C0C0C0;
+}
+a:hover {
+  color:#4C4646;
+}
+#edit_button{
+padding-left:40%;
+padding-top:12px;
+    
+}
+.form_dive{
+
+    float: left;
+    padding-left: 10%;
+    padding-top: 20px;
+
+    
+}
+#form_divemail {
+    float: left;
+    padding-left: 30%;
+    padding-top: 20px;
+}
+
+#flash{
+float:left;
+padding-top:0px;
+margin-top:0px;
+padding-left:10px;
+color:#FFFFFF;    
+}
+h2{
+font-size:20px;
+    
+}
+.fcomment {
+    background-color: #FFFFFF;
+    color: #2B60DE;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1.37em;
+    margin-top: 5px;
+    padding-top: 2px;
+    width: 95%;
+}

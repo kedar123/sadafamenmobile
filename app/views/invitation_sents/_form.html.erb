@@ -1,0 +1,17 @@
+<%= form_for(@invitation_sent) do |f| %>
+  <% if @invitation_sent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@invitation_sent.errors.count, "error") %> prohibited this invitation_sent from being saved:</h2>
+
+      <ul>
+      <% @invitation_sent.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

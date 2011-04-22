@@ -1,0 +1,35 @@
+
+  <div id="middle_div"> 
+      <div style="float:left;padding-left:40px;">
+          <%= error_messages_for :user %>
+      </div>
+     <div id="rform_div"> 
+<%= form_for :userr, :url => users_path,:html => { :multipart => true } do |f| -%>
+       <label for="name" class="rform_label">Login Name</label>
+        <br/>
+      <%= f.text_field :login ,:class=>"rform_input"%>
+        <br/>
+       <label for="name" class="rform_label">Email</label>
+        <br/>
+       <%= f.text_field :email ,:class=>"rform_input"%> 
+     <br/>
+       <label for="name" class="rform_label">Password</label>
+        <br/>
+      <%= f.password_field :password,:class=>"rform_input" %>
+     <br/>
+       <label for="name" class="rform_label">Confirm Password</label>
+        <br/>
+      <%= f.password_field :password_confirmation,:class=>"rform_input" %>
+     <br/>
+       <label for="name" class="rform_label">Avatar</label>
+        <br/>
+       <%= f.file_field :image_file %>
+     <br/>
+  <%= submit_tag 'Sign up',:id=>"rcontactsubmit" %>
+   <%end%>
+
+
+     </div>
+  </div>
+
+

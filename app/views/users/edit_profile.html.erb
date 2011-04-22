@@ -1,0 +1,130 @@
+<script>
+function make_facebook_login(){
+
+ FB.init({
+ appId  : '<%= Facebook::APP_ID %>',
+ status : true, // check login status
+ cookie : true, // enable cookies to allow the server to access the session
+ xfbml  : true  // parse XFBML
+ });
+FB.login(function(response) {
+  if (response.session) {
+    if (response.perms) {
+      // user is logged in and granted some permissions.
+      // perms is a comma separated list of granted permissions
+      location.href = '/homes'
+    } else {
+      // user is logged in, but did not grant any permissions
+    }
+  } else {
+    // user is not logged in
+  }
+}, {perms:"read_stream,publish_stream,offline_access,email"});
+
+}
+function  make_facebook_logout(){
+ FB.init({
+ appId  : '<%= Facebook::APP_ID %>',
+ status : true, // check login status
+ cookie : true, // enable cookies to allow the server to access the session
+ xfbml  : true  // parse XFBML
+ });
+
+  FB.logout(function(response) {
+  redirect_me();
+  });
+
+
+  
+}
+function redirect_me(){
+window.location = "http://<%=request.host_with_port%>/";
+  
+}
+
+</script>
+  <div id="upper_div">
+ <div id="flash"> <%=flash[:notice]%> </div>
+    <ul id="aux-nav">
+      	<li >Welcome <%=current_user.login%></li>
+    	  <li><a title="Contact Us" href="/logout">Sign Out</a></li>
+    </ul>
+    <div id="fb_image_div">
+       <div id="fb-root"></div>
+        <%if @facebook_cookies.blank?%>
+         <a href="#" onclick="make_facebook_login();">
+            <img src="/images/fb_login.gif"></img>
+         </a>
+        <%else%>
+         <a href="#" onclick="make_facebook_logout();">
+                <img src="/images/flogout.jpeg"></img>
+         </a> 
+        <%end%>
+  
+    </div>
+    <ul id="common_list">
+       	<li >
+        
+        <a href="/">Home</a>        
+        </li>
+      	<li ><%=link_to "My Friend",:controller=>"friendships",:action=>"get_all_friend"%></li>
+      	<li ><%=link_to "Invitation Pending",:controller=>"friendships",:action=>"pending_invitation"%></li>
+      	<li ><%=link_to "My Profile",:controller=>"users",:action=>"my_profile"%></li>
+      	<li ><%=link_to "Send Invitation",:controller=>"friend_requests",:action=>"send_friend_request"%></li>    </ul>
+  </div>
+  <div id="middle_div"> 
+          <div style="float:left;height: 130px;width: 500px;">
+                <%for errormsg in current_user.errors.full_messages%>
+                  <div >
+                    <%=errormsg%>
+                   </div> 
+                 <%end%>
+          </div>
+             <div id="form_div" > 
+          <label class="prayer_label" >Update Your Profile</label>
+  <% form_for :user, @user, :url => "/users/update_profile", :html => { :multipart => true } do |f| %>
+        <div style="float: right; margin-left: 300px;">
+          <a href="/users/change_password">Change Password</a>
+        </div>
+       <label for="name" class="form_label" >Login Name</label>
+        <br/>
+
+       <%= f.text_field :login ,:class=>"form_input",:value=>current_user.login ,:readonly=>"true"%>
+        <br/>
+        <label for="name" class="form_label">Email</label>
+        <br/>
+
+<%= f.text_field :email ,:class=>"form_input",:value=>current_user.email,:readonly=>"true"%>
+        <br/>        
+<!--
+       <label for="name" class="form_label">Password</label>
+        <br/>
+-->
+    <%#= f.password_field 'password' ,:class=>"form_input"%>
+       <!--<br/>
+       <label for="name" class="form_label">Confirmed Password</label>
+       <br/>
+
+<%= f.password_field :password_confirmation ,:class=>"form_input"%>
+ -->
+       <br/>
+       <label for="name" class="form_label">Avatar</label>
+   
+   <%#= f.file_field :avatar,:class=>"form_input" %> 
+   <%= f.file_field :image_file %>
+       <br/>
+<button id="contactsubmit" type="submit">Submit</button>
+<%end%>  
+
+  </div>         
+   
+
+              
+              
+    </div>
+
+
+<div id="footer" >
+</div>
+
+

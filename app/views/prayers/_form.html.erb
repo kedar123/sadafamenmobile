@@ -1,0 +1,17 @@
+<%= form_for(@prayer) do |f| %>
+  <% if @prayer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@prayer.errors.count, "error") %> prohibited this prayer from being saved:</h2>
+
+      <ul>
+      <% @prayer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

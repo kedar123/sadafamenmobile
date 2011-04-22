@@ -1,0 +1,21 @@
+< id="fb-root">< /div>
+< src="http://connect.facebook.net/en_US/all.js">
+<script>
+FB.init({
+appId : '141640805875847',
+status : true, // check login status
+cookie : true, // enable cookies to allow the server to access the session
+xfbml : true // parse XFBML
+});
+
+FB.Event.subscribe('auth.sessionChange', function(response) {
+if (response.session) {
+location.href = '/user/account';
+// A user has logged in, and a new cookie has been saved
+} else {
+location.href = '/user/login';
+// The user has logged out, and the cookie has been cleared
+}
+});
+< /script>
+< perms="email,user_birthday">< /fb:login-button>

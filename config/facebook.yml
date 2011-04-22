@@ -1,0 +1,13 @@
+development:
+ app_id: 204607726219351
+ secret_key: 40c3a2466f3dc6eb83f0fdafa9807c71
+ api_key: 2bec1dc45a2f4d409959c623aeb13d4e
+ callback_url: http://localhost:3000/
+	
+	
+production:
+ app_id: 204607726219351
+ secret_key: 40c3a2466f3dc6eb83f0fdafa9807c71
+ api_key: 2bec1dc45a2f4d409959c623aeb13d4e
+ callback_url: http://empty-galaxy-933.heroku.com/	
+	

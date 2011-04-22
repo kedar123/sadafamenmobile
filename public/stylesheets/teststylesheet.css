@@ -1,0 +1,82 @@
+
+a:link
+{ text-decoration: none; color: #FFFFFF }
+a:active
+{ text-decoration: none; color: #ff0000 }
+a:visited
+{ text-decoration: none }
+a:hover
+{ text-decoration: none; font-weight: bold; font-style: italic; color: #yfkjvb }
+
+
+p
+{ font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9pt; font-style: normal; line-height: 18pt; font-weight: normal; font-variant: normal; color: #666666; text-decoration: none; text-align: justify; z-index: 100}
+
+b
+{ font-family: Verdana, Arial, Helvetica, sans-serif; font-style: normal; line-height: 18pt; font-weight: bold; font-variant: normal; color: #666666; text-decoration: none; text-align: justify}
+
+h1
+{color: #000000; font-size: 18pt; font-family: verdana, arial, sans-serif; width: 500; z-index: 70 }
+
+
+ol
+{ font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9pt; font-style: normal; line-height: 18pt; font-weight: normal; font-variant: normal; color: #666666; text-decoration: none; text-align: justify; z-index: 100}
+
+ul
+{ font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9pt; font-style: normal; line-height: 18pt; font-weight: normal; font-variant: normal; color: #666666; text-decoration: none; text-align: justify; z-index: 100}
+
+
+div.box
+{ position: absolute; left: 140px; top: 150px; width: 500px; height: 100; layer-background-color: #ffffff; background-color: #ffffff; background: #ffffff; padding: 15; border-width: 2px; border-style: solid; border-color: #000000; z-index: 20 }
+
+body
+{ align: center; background: #e78e17}
+
+
+div.asp
+{ position: absolute; left: 60px; top: 250px; font-size: 9pt; font-family: verdana, arial, sans-serif; background: #fddaa3; border-width: 2px; border-style: solid; border-color: #000000; width: 90px; padding: 1; z-index: 10 }
+
+div.css
+{ position: absolute; left: 60px; top: 275px; font-size: 9pt; font-family: verdana, arial, sans-serif; background: #fddaa3; border-width: 2px; border-style: solid; border-color: #000000; width: 90px; padding: 1; z-index: 10 }
+
+div.java
+{ position: absolute; left: 60px; top: 300px; font-size: 9pt; font-family: verdana, arial, sans-serif; background: #fddaa3; border-width: 2px; border-style: solid; border-color: #000000; width: 90px; padding: 1; z-index: 10 }
+
+div.vb
+{ position: absolute; left: 60px; top: 325px; font-size: 9pt; font-family: verdana, arial, sans-serif; background: #fddaa3; border-width: 2px; border-style: solid; border-color: #000000; width: 90px; padding: 1; z-index: 10 }
+
+div.frontpage
+{ position: absolute; left: 60px; top: 350px; font-size: 9pt; font-family: verdana, arial, sans-serif; background: #fddaa3; border-width: 2px; border-style: solid; border-color: #000000; width: 90px; padding: 1; z-index: 10 }
+
+
+#heading1
+{ position: absolute; left: 165px; top: 23px; color: #e41b17; font-size: 34pt; font-family: Impact, Arial, helvetica, sans-serif; width: 580; z-index: 70 }
+
+#heading1a
+{ position: absolute; left: 163px; top: 25px; color: #ffffff; font-size: 34pt; font-family: Impact, Arial, helvetica, sans-serif; width: 580; z-index: 60 }
+
+#heading1b
+{ position: absolute; left: 166px; top: 25px; color: #ffffff; font-size: 34pt; font-family: Impact, Arial, helvetica, sans-serif; width: 580; z-index: 50 }
+
+#heading1c
+{ position: absolute; left: 160px; top: 29px; color: #000000; font-size: 34pt; font-family: Impact, Arial, helvetica, sans-serif; width: 580; z-index: 40 }
+
+#heading1d
+{ position: absolute; left: 167px; top: 21px; color: #000000; font-size: 34pt; font-family: Impact, Arial, helvetica, sans-serif; width: 580; z-index: 30 }
+
+#heading2
+{ position: absolute; left: 430px; top: 71px; color: #000000; font-size: 18pt; font-family: garamond, goudy, times, serif; width: 580; z-index: 70 }
+
+
+div.l1
+{ position: absolute; left: -10px; top: 76px; font-size: 1px; font-family: verdana, arial, sans-serif; background-color: #000000; background: #000000; border-width: 0px; border-style: solid; border-color: #999999; width: 640px; padding: 0; z-index: 1 }
+
+hr
+{ color: #000000; height: 1px }
+
+
+#intro1
+{ color: #fa9b3c; margin-top: 160px; margin-left: 20px; font-size: 35pt; line-height: 35pt; font-family: arial, helvetica, sans-serif; width:800; vertical-align: middle}
+ 
+
+

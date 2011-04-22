@@ -1,0 +1,77 @@
+  <div id="middle_div"> 
+               <div id="middleprayer" > 
+                      <div style="font-family:lucida grande,tahoma,verdana,arial,sans-serif; text-align: left;font-size: 11px;font-weight: bold; color: #3B5998;text-decoration: none;">
+                        Add Prayer
+                    <form action="/prayers" method="post">
+                      <table>
+                      <tr><td>Title:-</td><td><%=text_field 'prayer' ,'title'%></td></tr>
+                      <tr><td>Description:-</td><td><%=text_area 'prayer' ,'description', :rows => 2, :cols => 35%></td></tr>
+                      
+                      </table>
+                      <%=hidden_field 'prayer','user_id',:value=>current_user.id%>
+                      <button id="contactsubmit" type="submit">Submit</button>    
+                    </form>
+                         <p class="prayer_label"> All Prayers</p>  
+                      </div>
+                        <%com=0%>
+                        <%for prayer in @uprayer%>
+                          <div>
+                              <div style="padding-top:20px;">          
+                                   <p class="prayer">
+                                          <p id="commentimage">
+                                            <%if prayer.user.binary_data.blank?%>
+                                                  <img src="/images/blank.jpeg"></img>                  
+                                             <%else%>  
+                                                  <%= image_tag("/users/code_image/#{prayer.user.id}", :alt => "Image",:size=>"50x50") %>
+                                             <%end%>
+                                          </p>         
+                                      <span style="font-family:lucida grande,tahoma,verdana,arial,sans-serif; text-align: left;font-size: 11px;font-weight: bold; color: #3B5998;text-decoration: none;"><%=prayer.user.login%> </span>
+                                     
+                                   <p style="text-align:left;font-family:lucida grande,tahoma,verdana,arial,sans-serif;color: #000000;font-size: 11px;font-weight: normal;" >Title:-<%=prayer.title%></p>
+                                   
+                                   </p>  
+                                   <p class="prayer">
+                                    Description :-  <p style="padding-left:52px;text-align:left;font-family:lucida grande,tahoma,verdana,arial,sans-serif;color: #000000;font-size: 11px;font-weight: normal;"><%=prayer.description%></p>
+                                   </p>
+                                    <%for comment in  @usercomments[com]%> 
+                                       <div style="margin-left: 55px; background-color:#EDEFF4;height:60px;">    
+
+                                          <p id="commentimage">
+                                            <%if comment.user.binary_data.blank?%>
+                                          <img src="/images/blank.jpeg"></img>                  
+                                            <%else%>
+                          <%= image_tag("/users/code_image/#{comment.user.id}", :alt => "Image",:size=>"50x50") %>
+                                            <%end%>  
+                                          </p>
+                                        
+                                              <p style="color: #333333;direction: ltr;font-family:lucida grande,tahoma,verdana,arial,sans-serif;font-size: 11px;text-align: left;">
+                                              <span style="font-family: lucida grande,tahoma,verdana,arial,sans-serif; text-align: left; font-size: 11px; font-weight: bold; color: rgb(59, 89, 152); text-decoration: none;"><%=comment.user.login%> :-</span>  
+                                              <%=comment.comment%></p>
+                                              <span style="font-family: lucida grande,tahoma,verdana,arial,sans-serif; text-align: left; font-size: 11px; font-weight: lighter; color: rgb(59, 89, 152); text-decoration: none;">
+                                              <%=distance_of_time_in_words(Time.now,comment.created_at).to_s + " Before" %>
+                                              </span>  
+                                      
+                                        </div>
+                                    <%end%>    
+                                    <%com=com+1%>                               
+                              </div>
+                          </div>    
+                          <div id="addcomment"> 
+                               <label onclick="document.getElementById('commentform<%=prayer.id%>').style.display='block'" style="color: #6B84B4;font-weight: normal;cursor: pointer;font-family: 'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;font-size:12px;"> Add Comments  </label>
+                          </div> 
+                          <div id="commentform<%=prayer.id%>" style="display:none;width: 255px;padding-left:55px;"> 
+                                <img src="/images/xsmall.jpeg" style="padding-left:265px;cursor:move;" onclick="document.getElementById('commentform<%=prayer.id%>').style.display='none'" ></img>
+                               <form action="/comments" method="post"> 
+                                   <%=text_field 'comment' ,'comment'%>
+                                  <%=hidden_field 'comment','user_id',:value=>current_user.id%>
+                                  <%=hidden_field 'comment','prayer_id',:value=>prayer.id%>   
+                                 
+                              </form>
+                          </div>  
+                              <%end%>
+               </div>         
+    </div>
+
+
+
+

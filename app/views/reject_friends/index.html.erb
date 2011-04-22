@@ -1,0 +1,21 @@
+<h1>Listing reject_friends</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @reject_friends.each do |reject_friend| %>
+  <tr>
+    <td><%= link_to 'Show', reject_friend %></td>
+    <td><%= link_to 'Edit', edit_reject_friend_path(reject_friend) %></td>
+    <td><%= link_to 'Destroy', reject_friend, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Reject friend', new_reject_friend_path %>

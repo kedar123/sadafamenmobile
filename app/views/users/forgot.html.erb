@@ -1,0 +1,20 @@
+
+  <div id="middle_div"> 
+     <div id="form_div"> 
+<% form_for :user do |f| -%>
+       <label for="name" class="form_label">Enter Email Address</label>
+        <br/>
+
+      <%= f.text_field :email,:class=>"form_input_forgot" %>
+        <br/>
+      
+
+
+<%= submit_tag 'Submit' ,:id=>"contactsubmit"%>
+<%end%>
+
+
+     </div>
+  </div>
+
+

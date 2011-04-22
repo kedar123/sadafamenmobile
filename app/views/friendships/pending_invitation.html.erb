@@ -1,0 +1,52 @@
+
+    <div id="middle_div"> 
+      <p style="padding-left:20%;padding-top:2%">  <label class="prayer_label">Following Are The Invitation Pending For <%=current_user.login%></label></p>
+       <div id="friend_list">
+           <span class="prayer_label" style="font-weight:normal"> Click On User Name To Accept The Invitation</span>
+                   <% for pending_invited in @pending_invited_by%>  
+                          
+ <div style="padding-top:50px">
+                                       <%if pending_invited.binary_data.blank?%>   
+                                          <img src="/images/blank.jpeg"></img>
+                                        <%else%>
+        <%= image_tag "/users/code_image/#{pending_invited.id}",:size=>"50x50",:style=>"float:left;padding:5px;" %>
+                     
+                                        <%end%>  
+<span class="prayer_label">
+                                 Accept:-<%= link_to pending_invited.login ,  :controller=>'friendships' ,:action=>'accept_invitation',:id=>pending_invited.id%>
+                                 Reject:-<%= link_to pending_invited.login ,  :controller=>'friendships' ,:action=>'reject_invitation',:id=>pending_invited.id%>
+                                
+                                 
+                                 </span>
+                                    </div>
+                        <%end%>  
+  
+    
+       </div>
+<div>       
+</div>
+  <div style="padding-left:120px;padding-top:30px;">
+   <span class="prayer_label"> Rejected Friendships Request</span>
+      <%for rejuser in @rejected_friends%>
+        <br/>
+        <%=rejuser.login%>
+      <%end%>
+
+
+      <%for rejuser in @rejected_friends_req%>
+        <br/>
+        <%=rejuser.user.login%>
+      <%end%>
+
+  </div>        
+    
+    
+    
+</div>
+    
+
+
+
+
+
+

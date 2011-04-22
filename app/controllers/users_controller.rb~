@@ -1,0 +1,71 @@
+class UsersController < ApplicationController
+  # Be sure to include AuthenticationSystem in Application Controller instead
+  before_filter :check_the_login,:only=>:user_action
+  
+   def check_the_login
+      if logged_in?
+      else 
+        flash[:notice] = "Please Login To Send Email"
+         redirect_to "/login"
+      end  
+   end  
+
+  def my_profile
+  end    
+
+  # render new.rhtml
+  def new
+    @user = User.new
+  end
+ 
+  def create
+    logout_keeping_session!
+    @user = User.new(params[:user])
+    success = @user && @user.save
+    
+    if success && @user.errors.empty?
+       notice = "Logged in Successfully"
+      # Protects against session fixation attacks, causes request forgery
+      # protection if visitor resubmits an earlier form using back
+      # button. Uncomment if you understand the tradeoffs.
+      # reset session
+      #here i need to send email to the registered user
+      
+      Notifier.send_welcome_registration(@user).deliver
+      
+      if !session[:friendid].blank?
+       tempuser = User.find(session[:friendid])
+        session[:friendid] = nil
+        self.current_user = @user # !! now logged in
+        tempuser.invite current_user
+        notice = "Logged in Successfully Please Accept The Invitation" 
+      end
+      
+      flash[:notice]=notice
+      redirect_back_or_default('/')
+    else
+      flash.now[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
+      render :action => 'new'
+    end
+  end
+
+  def user_action
+      total_friend_user = current_user.friends
+      total_friend_ids = []
+      total_friend_user.each {|frid|  total_friend_ids << frid.id  }      
+      total_friend_ids << current_user.id
+      @uprayer=[]
+      @uprayer = Prayer.find(:all,:conditions=>"user_id in (#{total_friend_ids.join(',')})")
+      @usercomments = []
+      @uprayer.each {|epry|  @usercomments << epry.comments }
+      @usercomments.each do |totalusc|
+            for usc  in totalusc
+                 if total_friend_ids.index(usc.user_id)
+                 else  
+                    totalusc.delete(usc)
+                 end           
+             end      
+      end  
+  end  
+ 
+end

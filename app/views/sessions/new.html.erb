@@ -1,0 +1,29 @@
+
+  <div id="middle_div"> 
+
+     <div id="form_div"> 
+<%= form_tag session_path do -%>
+
+
+       <label for="name" class="form_label">Login Name</label>
+        <br/>
+
+       <%= text_field_tag 'login', @login,:class=>"form_input" %>
+        <br/>
+
+       <label for="name" class="form_label">Password</label>
+        <br/>
+      <%= password_field_tag 'password', nil,:class=>"form_input" %>
+     <br/>
+      <%= submit_tag 'Log in' ,:id=>"contactsubmit"%>
+      
+<%end%>
+<br/>
+<a href="/users/forgot">Forgot Password</a>
+
+     </div>
+  </div>
+
+
+
+

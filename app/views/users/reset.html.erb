@@ -1,0 +1,22 @@
+
+  <div id="middle_div"> 
+    <div id="form_div">
+    <% form_for :user do |f| -%>
+        <form>
+           <label for="name" class="form_label">Pick a new password for <%= @user.email %></label>
+            <br/>
+            <label class="form_label">Password:</label>
+            <br/>
+           <%= f.password_field :password,:class=>"form_input" %>
+            <br/>
+           <label class="form_label"">Confirm Password:</label>
+            <br/>
+             <%= f.password_field :password_confirmation,:class=>"form_input" %>
+            <br/> 
+            <button id="contactsubmit" type="submit">Submit</button>
+    <%end%>
+    </div>
+
+     </div>
+  </div>
+

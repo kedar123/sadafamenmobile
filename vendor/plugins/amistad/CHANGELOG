@@ -1,0 +1,40 @@
+Version 0.7.1 (12.02.2011)
+--------------------------
+- Totally mess the previous relase. This one fix it.
+
+Version 0.7.0 (12.02.2011)
+--------------------------
+- add mongoid support
+- method remove changed to remove_friendship
+
+Version 0.6.0 (06.01.2011)
+--------------------------
+- improved blocking and unblocking friends
+- method is_friend_with? changed to friend_with?
+- method is_connected_with? changed to connected_with?
+- method was_invited_by? changed to invited_by?
+- method has_invited? changed to invited?
+- added method blocked?
+
+Version 0.5.8 (08.12.2010)
+--------------------------
+- made find_any_friendship_with public
+
+Version 0.5.7 (07.12.2010)
+--------------------------
+- fixed bug with invitation approving
+- cleaned up the invite and approve methods
+
+Version 0.5.6 (30.11.2010)
+--------------------------
+- added has_invited? method in FriendModel
+- added is_connected_with? method in FriendModel
+- improved was_invited_by?
+
+Version 0.5.5 (29.11.2010)
+--------------------------
+- added unblock method in FriendModel
+
+Version 0.5.2 (28.11.2010)
+--------------------------
+- Migrated gem to bundler
