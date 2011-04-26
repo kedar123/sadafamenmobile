@@ -30,9 +30,8 @@ FB.login(function(response) {
     // user is not logged in
   }
 }, {perms:"read_stream,publish_stream,offline_access,email"});
-
-
 }
+
 
 function  make_facebook_logout(){
 
@@ -57,9 +56,22 @@ window.location = "http://<%=request.host_with_port%>/";
 }
 
 
+/*the facebook dialog for making the friend request*/
+
+function make_friend_request(){
+  FB.init({
+   appId  : '<%= Facebook::APP_ID %>',
+   status : true, // check login status
+   cookie : true, // enable cookies to allow the server to access the session
+   xfbml  : true  // parse XFBML
+ });
+  
+  FB.ui({method: 'apprequests', message: 'You should learn more about this awesome application.', data: 'tracking information for the user'});
+  
+}
 
 </script>
-
+ <div id="fb-root"></div>
   <div id="upper_div">
    <div id="flash"> <%=flash[:notice]%> </div>
     <ul id="aux-nav">
@@ -81,7 +93,7 @@ window.location = "http://<%=request.host_with_port%>/";
         <%end%>
     </ul>
     <div id="fb_image_div">
-       <div id="fb-root"></div>
+      
         <%if @facebook_cookies.blank?%>
          <a href="#" onclick="make_facebook_login();">
             <img src="/images/fb_login.gif"></img>
