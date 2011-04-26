@@ -65,6 +65,8 @@ Friendap::Application.routes.draw do
   match 'login' => 'sessions#new', :as => :login
   match 'logout' => 'sessions#destroy', :as => :logout
   match '/activate/:activation_code' => 'users#activate', :as => :activate, :activation_code => nil
+  
+  match "/post_on_wall" => "users#post_on_wall"
   root :to => "users#user_action"
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -98,8 +98,7 @@ class UsersController < ApplicationController
   end
 
   def user_action
-	  
-      total_friend_user = current_user.friends
+	    total_friend_user = current_user.friends
       total_friend_ids = []
       total_friend_user.each {|frid|  total_friend_ids << frid.id  }      
       total_friend_ids << current_user.id
@@ -120,6 +119,28 @@ class UsersController < ApplicationController
    def koalatest
       @graph = Koala::Facebook::GraphAPI.new(@facebook_cookies["access_token"])
    end  
+
+  def post_on_wall  
+    if @facebook_cookies
+    if @facebook_cookies["access_token"]
+      @graph = Koala::Facebook::GraphAPI.new(@facebook_cookies["access_token"])
+    end
+    end
+    if !@graph.blank?
+         @graph.put_object("me", "feed", :message => params[:post])
+         flash[:notice] = "Your Message Has Been Post"
+         redirect_to :back
+    else    
+          flash[:notice] = "Please Login To Facebook Before Posting On Wall"
+          redirect_to :back
+    end  
+        
+    
+  end  
+
+
+
+
 
   def forgot
     if request.post?
