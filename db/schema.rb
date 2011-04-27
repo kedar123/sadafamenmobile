@@ -12,11 +12,6 @@
 
 ActiveRecord::Schema.define(:version => 20110328053721) do
 
-  create_table "apis", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
     t.text     "comment"
@@ -52,8 +47,8 @@ ActiveRecord::Schema.define(:version => 20110328053721) do
     t.string   "description"
     t.string   "lat"
     t.string   "lang"
-    t.integer  "viewed_id"
-    t.integer  "prayed_id"
+    t.integer  "viewed_no"
+    t.integer  "prayed_no"
   end
 
   create_table "reject_friends", :force => true do |t|

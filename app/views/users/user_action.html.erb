@@ -1,33 +1,21 @@
   <div id="middle_div"> 
                         <div style="font-family:lucida grande,tahoma,verdana,arial,sans-serif; text-align: left;font-size: 11px;font-weight: bold; color: #3B5998;text-decoration: none;margin:5px;margin-bottom: 20px;margin-top: 5px;float:right;margin-right:35%" >
-                      
                   <a href="#" onclick="make_friend_request();" style="color:#3B5998;">Click Here To Request Your Friend</a>
-
-                        
                       </div>
                <div id="middleprayer" > 
                       <div style="font-family:lucida grande,tahoma,verdana,arial,sans-serif; text-align: left;font-size: 11px;font-weight: bold; color: #3B5998;text-decoration: none;margin:5px;margin-bottom: 20px;margin-top: 5px;" >
-                      
                           Add Message To Facebook Wall
-                      
                           <form action="/post_on_wall" >
                             <%=text_area_tag 'post' ,nil ,:rows => 2, :cols => 35%>
                             <button id="contactsubmit" type="submit">Submit</button> 
                           </form>
-                        
                       </div>
-                      
-
-                      
-                      
-                      
                       <div style="font-family:lucida grande,tahoma,verdana,arial,sans-serif; text-align: left;font-size: 11px;font-weight: bold; color: #3B5998;text-decoration:none;">
                         Add Prayer
                     <form action="/prayers" method="post">
                       <table>
                       <tr><td>Title:-</td><td><%=text_field 'prayer' ,'title'%></td></tr>
                       <tr><td>Description:-</td><td><%=text_area 'prayer' ,'description', :rows => 2, :cols => 35%></td></tr>
-                      
                       </table>
                       <%=hidden_field 'prayer','user_id',:value=>current_user.id%>
                       <button id="contactsubmit" type="submit">Submit</button>    

@@ -51,8 +51,8 @@ Friendap::Application.configure do
    :address              => "smtp.gmail.com",
    :port                 => 587,
    :domain               => 'pragtech.co.in',
-   :user_name            => 'test@pragtech.co.in',
-   :password             => 'test123',
+   :user_name            => 'kedar.pathak@pragtech.co.in',
+   :password             => 'kedar123123',
    :authentication       => 'plain',
    :enable_starttls_auto => true  
    }
