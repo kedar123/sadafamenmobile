@@ -66,7 +66,10 @@ class ApiController < ApplicationController
              invsnt=InvitationSent.new(:from_email=>iphoneloggedinuser.email,:to_email=>params[:user][:email])
              invsnt.save
               if friend.blank?
+                  begin
                   Notifier.friend_request(params[:user][:email],iphoneloggedinuser,request.host_with_port).deliver       
+                  rescue
+                  end  
               else  
                   iphoneloggedinuser.invite  friend
               end
@@ -229,7 +232,10 @@ class ApiController < ApplicationController
       # button. Uncomment if you understand the tradeoffs.
       # reset session
       #here i need to send email to the registered user
+      begin
       Notifier.send_welcome_registration(@user,request.host_with_port).deliver
+      rescue
+      end  
 #      if !session[:friendid].blank?
 #        tempuser = User.find(session[:friendid])
 #        session[:friendid] = nil

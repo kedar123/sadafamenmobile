@@ -23,7 +23,10 @@ class FriendRequestsController < ApplicationController
              invsnt=InvitationSent.new(:from_email=>current_user.email,:to_email=>params[:useremail])
              invsnt.save
               if friend.blank?
+                begin
                   Notifier.friend_request(params[:useremail],current_user,request.host_with_port).deliver       
+                rescue  
+                end  
               else  
                   current_user.invite  friend
               end

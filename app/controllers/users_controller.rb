@@ -82,7 +82,11 @@ class UsersController < ApplicationController
       # reset session
       #here i need to send email to the registered user
       self.current_user = @user # !! now logged in
+      begin
       Notifier.send_welcome_registration(@user,request.host_with_port).deliver
+      rescue
+        
+      end 
       if !session[:friendid].blank?
         tempuser = User.find(session[:friendid])
         session[:friendid] = nil
@@ -147,7 +151,10 @@ class UsersController < ApplicationController
       user = User.find_by_email(params[:user][:email])
       if user
         user.create_reset_code
+        begin
         Notifier.send_reset_code(user,request.host_with_port).deliver
+        rescue
+        end  
         flash[:notice] = "Reset code sent to #{user.email}"
       else
         flash[:notice] = "#{params[:user][:email]} does not exist in system"

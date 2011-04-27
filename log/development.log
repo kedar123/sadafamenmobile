@@ -6100,3 +6100,83 @@ Started GET "/" for 127.0.0.1 at 2011-04-27 17:53:57 +0530
   [1m[35mPrayer Load (0.4ms)[0m  SELECT `prayers`.* FROM `prayers` WHERE (user_id in (1)) ORDER BY id desc
 Rendered users/user_action.html.erb within layouts/login (6.0ms)
 Completed 200 OK in 234ms (Views: 27.3ms | ActiveRecord: 165.8ms)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /home/ptsadmin/railsappfriend/workingprogressoffriendapp/postgresqlerrornewamenmobilecopyiscreated/amenmobile/sadafamenmobile/vendor/plugins/paperclip/rails/init.rb. (called from <top (required)> at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/postgresqlerrornewamenmobilecopyiscreated/amenmobile/sadafamenmobile/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from join at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/postgresqlerrornewamenmobilecopyiscreated/amenmobile/sadafamenmobile/config/initializers/koala.rb:2)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-27 18:25:06 +0530
+  Processing by UsersController#user_action as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `friendships` ON `users`.id = `friendships`.friend_id WHERE ((`friendships`.user_id = 1) AND ((`friendships`.`pending` = 0 AND `friendships`.`blocker_id` IS NULL)))[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `friendships` ON `users`.id = `friendships`.user_id WHERE ((`friendships`.friend_id = 1) AND ((`friendships`.`pending` = 0 AND `friendships`.`blocker_id` IS NULL)))
+  [1m[36mPrayer Load (0.1ms)[0m  [1mSELECT `prayers`.* FROM `prayers` WHERE (user_id in (1)) ORDER BY id desc[0m
+Rendered users/user_action.html.erb within layouts/login (5.9ms)
+Completed 200 OK in 318ms (Views: 9.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2011-04-27 18:25:08 +0530
+  Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 61ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-04-27 18:25:09 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (3.8ms)
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-04-27 18:25:12 +0530
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/login (20.9ms)
+Completed 200 OK in 126ms (Views: 24.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-04-27 18:25:12 +0530
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/login (20.8ms)
+Completed 200 OK in 123ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-04-27 18:25:34 +0530
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"swZI39aycroyEe2JGc32VphttVak9t8A83IFixcdNz8=", "userr"=>{"login"=>"vipin", "email"=>"vipin.yadav@pragtech.co.in", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`login` = BINARY 'vipin') LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`email` = BINARY 'vipin.yadav@pragtech.co.in') LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `users`[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO `users` (`login`, `name`, `email`, `crypted_password`, `salt`, `created_at`, `updated_at`, `remember_token`, `remember_token_expires_at`, `avatar_file_name`, `avatar_content_type`, `avatar_file_size`, `avatar_updated_at`, `reset_code`, `description`, `content_type`, `filename`, `binary_data`) VALUES ('vipin', '', 'vipin.yadav@pragtech.co.in', '777f4df36a783c615b970c307edd8b0b434a2013', 'd03d4bffe0633746cacf16898c69370f705225fb', '2011-04-27 12:55:34', '2011-04-27 12:55:34', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+  [1m[36mSQL (55.0ms)[0m  [1mCOMMIT[0m
+Rendered notifier/send_welcome_registration.html.erb (0.6ms)
+
+Sent mail to vipin.yadav@pragtech.co.in (62ms)
+Return-Path: <pragtech.co.in>
+Date: Wed, 27 Apr 2011 18:25:36 +0530
+From: pragtech.co.in
+To: vipin.yadav@pragtech.co.in
+Message-ID: <4db812489595_428f52ab156438aa@ptsadmin-desktop.mail>
+Subject: Send welcome registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+hello vipin
+
+Thanks For Signing Up You Can Login And Use The Friendship Features Like Facebook.
+
+Please <a href="http://localhost:3000/login">Login </a>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 1766ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-27 18:25:36 +0530
+  Processing by UsersController#user_action as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 2) LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `friendships` ON `users`.id = `friendships`.friend_id WHERE ((`friendships`.user_id = 2) AND ((`friendships`.`pending` = 0 AND `friendships`.`blocker_id` IS NULL)))[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `friendships` ON `users`.id = `friendships`.user_id WHERE ((`friendships`.friend_id = 2) AND ((`friendships`.`pending` = 0 AND `friendships`.`blocker_id` IS NULL)))
+  [1m[36mPrayer Load (0.4ms)[0m  [1mSELECT `prayers`.* FROM `prayers` WHERE (user_id in (2)) ORDER BY id desc[0m
+Rendered users/user_action.html.erb within layouts/login (7.9ms)
+Completed 200 OK in 192ms (Views: 13.8ms | ActiveRecord: 59.4ms)
